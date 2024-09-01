@@ -1,0 +1,12 @@
+# Start with Golang base image
+FROM golang:1.20
+
+WORKDIR /app
+
+COPY . .
+
+RUN go mod init example.com/microservice && go mod tidy
+
+RUN go build -o main .
+
+CMD ["/app/main"]
