@@ -1,8 +1,8 @@
 package database
 
 import (
+	"author_service/configs"
 	"fmt"
-	"sa_telco_legacy/configs"
 
 	"github.com/redis/go-redis/v9"
 )

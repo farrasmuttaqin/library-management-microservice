@@ -1,0 +1,27 @@
+2024/09/01 14:20:29 log.go:66: 
+2024/09/01 14:20:30 log.go:66: 
+2024/09/01 14:20:36 jwt.go:27: Failed to validate token: token is expired by 2h29m14.417731s
+2024/09/01 14:20:36 log.go:66: 
+2024/09/01 14:20:50 log.go:66: 
+2024/09/01 14:20:58 log.go:133: {"LOG":"LOG_ERROR_AUTHOR_MICROSERVICES","REQUEST":{"query_params":"unknown","request_body":"{\n  \"jwt_token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoxLCJ1c2VybmFtZSI6ImpvaG5fZG9lIiwicm9sZSI6ImFkbWluIiwiZXhwIjoxNzI1MTg5ODYxLCJpYXQiOjE3MjUxODYyNjF9.IK2la3Zsf21YZNrpIQulGtRUpiAT7sfXQsMOExuYGrw\"\n}"},"RESPONSE":{"path":"/api/user/get","err":"recovered from panic: interface conversion: interface {} is uint, not string","function_name":"runtime.gopanic","file":"/usr/local/go/src/runtime/panic.go","line":785,"stack_trace":"goroutine 38 [running]:\nuser_service/middleware.ErrorHandler.func1.1()\n\t/Users/farras/Downloads/library_management_microservice/UserService/middleware/log.go:109 +0x2e0\npanic({0x101dbb840?, 0x1400009c450?})\n\t/usr/local/go/src/runtime/panic.go:785 +0xf0\nuser_service/handlers.(*UserHandler).GetUserIdByAuth(0x140000be140, 0x140000d8008)\n\t/Users/farras/Downloads/library_management_microservice/UserService/handlers/user.go:43 +0x2e8\ngithub.com/gofiber/fiber/v2.(*Ctx).Next(0x140000d8008)\n\t/Users/farras/go/pkg/mod/github.com/gofiber/fiber/v2@v2.52.5/ctx.go:1031 +0xb0\nuser_service/middleware.ValidateJWT.func1(0x140000d8008)\n\t/Users/farras/Downloads/library_management_microservice/UserService/middleware/jwt.go:35 +0x4ec\ngithub.com/gofiber/fiber/v2.(*App).next(0x140002b8a08, 0x140000d8008)\n\t/Users/farras/go/pkg/mod/github.com/gofiber/fiber/v2@v2.52.5/router.go:145 +0x330\ngithub.com/gofiber/fiber/v2.(*Ctx).Next(0x140000d8008)\n\t/Users/farras/go/pkg/mod/github.com/gofiber/fiber/v2@v2.52.5/ctx.go:1034 +0xd8\nuser_service/middleware.ErrorHandler.func1(0x140000d8008)\n\t/Users/farras/Downloads/library_management_microservice/UserService/middleware/log.go:141 +0x90\ngithub.com/gofiber/fiber/v2.(*Ctx).Next(0x140000d8008)\n\t/Users/farras/go/pkg/mod/github.com/gofiber/fiber/v2@v2.52.5/ctx.go:1031 +0xb0\nuser_service/middleware.AccessLogger.func1(0x140000d8008)\n\t/Users/farras/Downloads/library_management_microservice/UserService/middleware/log.go:25 +0x10c\ngithub.com/gofiber/fiber/v2.(*App).next(0x140002b8a08, 0x140000d8008)\n\t/Users/farras/go/pkg/mod/github.com/gofiber/fiber/v2@v2.52.5/router.go:145 +0x330\ngithub.com/gofiber/fiber/v2.(*App).handler(0x140002b8a08, 0x1400037a008)\n\t/Users/farras/go/pkg/mod/github.com/gofiber/fiber/v2@v2.52.5/router.go:172 +0x134\ngithub.com/valyala/fasthttp.(*Server).serveConn(0x140001b5800, {0x101f3bee8, 0x1400031e100})\n\t/Users/farras/go/pkg/mod/github.com/valyala/fasthttp@v1.51.0/server.go:2359 +0x11e0\ngithub.com/valyala/fasthttp.(*workerPool).workerFunc(0x140000be1e0, 0x14000322d00)\n\t/Users/farras/go/pkg/mod/github.com/valyala/fasthttp@v1.51.0/workerpool.go:224 +0x9c\ngithub.com/valyala/fasthttp.(*workerPool).getCh.func1()\n\t/Users/farras/go/pkg/mod/github.com/valyala/fasthttp@v1.51.0/workerpool.go:196 +0x44\ncreated by github.com/valyala/fasthttp.(*workerPool).getCh in goroutine 1\n\t/Users/farras/go/pkg/mod/github.com/valyala/fasthttp@v1.51.0/workerpool.go:195 +0x2c0\n"}}
+2024/09/01 14:20:58 log.go:66: 
+2024/09/01 14:21:36 log.go:66: 
+2024/09/01 15:42:25 log.go:66: 
+2024/09/01 15:42:34 jwt.go:27: Failed to validate token: token is expired by 21m44.147032s
+2024/09/01 15:42:34 log.go:66: 
+2024/09/01 15:42:37 log.go:66: 
+2024/09/01 16:01:48 log.go:66: 
+2024/09/01 16:01:59 log.go:66: 
+2024/09/01 16:02:08 log.go:66: 
+2024/09/01 16:02:18 log.go:66: 
+2024/09/01 16:02:21 log.go:66: 
+2024/09/01 16:02:23 log.go:66: 
+2024/09/01 16:02:35 log.go:66: 
+2024/09/01 16:02:42 log.go:66: 
+2024/09/01 16:45:13 log.go:66: 
+2024/09/01 16:46:46 log.go:66: 
+2024/09/01 17:18:01 log.go:66: 
+2024/09/01 17:18:09 log.go:66: 
+2024/09/01 17:18:17 log.go:66: 
+2024/09/01 17:18:21 log.go:66: 
+2024/09/01 17:18:26 log.go:66: 

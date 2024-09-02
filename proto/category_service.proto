@@ -1,0 +1,65 @@
+syntax = "proto3";
+
+package user;
+
+option go_package = "CategoryService/proto/user;user";
+
+// Define the UserService with token validation and user retrieval
+service UserService {
+  rpc ValidateToken(ValidateTokenRequest) returns (ValidateTokenResponse);
+  rpc GetUserById(GetUserByIdRequest) returns (GetUserByIdResponse);
+}
+
+// Request message for ValidateToken
+message ValidateTokenRequest {
+  string token = 1; // JWT token to validate
+}
+
+// Response message for ValidateToken
+message ValidateTokenResponse {
+  int32 status = 1; // Status of the validation, 1 for success, 0 for failure
+
+  // Claims message to represent JWT claims
+  Claims claims = 2; // Claims if the token is valid
+
+  // Error message if any
+  string error_message = 3;
+}
+
+// Claims message representing JWT claims
+message Claims {
+  uint64 user_id = 1; // User ID
+  string username = 2; // Username
+  string role = 3; // User role
+  int64 exp = 4; // Expiration timestamp
+  int64 iat = 5; // Issued at timestamp
+}
+
+// Request message for GetUserById
+message GetUserByIdRequest {
+  uint64 user_id = 1; // User ID to retrieve
+}
+
+// Response message for GetUserById
+message GetUserByIdResponse {
+  int32 status = 1; // Status of the retrieval, 1 for success, 0 for failure
+
+  // User information
+  User user = 2; // User details if successful
+
+  // Error message if any
+  string error_message = 3;
+}
+
+// User message representing user details
+message User {
+  uint64 id = 1; // User ID
+  string username = 2; // Username
+  string email = 3; // Email address
+  string first_name = 4; // First name
+  string last_name = 5; // Last name
+  string role = 6; // User role
+  string created_at = 7; // Creation timestamp
+  string updated_at = 8; // Last update timestamp
+  string deleted_at = 9; // Deletion timestamp (nullable)
+}

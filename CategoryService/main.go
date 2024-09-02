@@ -1,55 +1,80 @@
 package main
 
 import (
-    "context"
-    "github.com/gofiber/fiber/v2"
-    "github.com/go-redis/redis/v8"
-    "log"
-    "time"
+	"category_service/configs"
+	"category_service/database"
+	"category_service/helpers"
+	database2 "category_service/helpers/database"
+	"category_service/helpers/format"
+	"category_service/route"
+	"context"
+	"fmt"
+	"github.com/gofiber/fiber/v2"
+	"github.com/spf13/viper"
+	"github.com/viant/toolbox"
+	"log"
+	"os"
+	"time"
 )
 
-var ctx = context.Background()
-
 func main() {
-    app := fiber.New()
+	// starting engine
+	fmt.Println("Starting book service engine ...")
 
-    // Redis client setup
-    rdb := redis.NewClient(&redis.Options{
-        Addr: "redis:6379",
-        Password: "", // no password set
-        DB: 0,  // use default DB
-    })
+	// set context
+	ctx := context.Background()
 
-    // Middleware to cache responses
-    app.Use(func(c *fiber.Ctx) error {
-        key := "cache:" + c.Path()
+	// set fiber app
+	app := fiber.New()
 
-        // Check if the cache exists
-        cached, err := rdb.Get(ctx, key).Result()
-        if err == redis.Nil {
-            // Cache miss: Proceed with the request
-            if err := c.Next(); err != nil {
-                return err
-            }
+	// Load Configuration
+	configuration := configs.NewConfigViper(viper.New())
+	redisMasterClient := database.InitiationRedisMaster(configuration)
+	redisReplicaClient := database.InitiationRedisReplica(configuration)
+	gormDatabaseDB := database.InitiationDatabase(configuration)
 
-            // Store the response in Redis with a TTL of 1 minute
-            rdb.Set(ctx, key, c.Response().Body(), time.Minute)
+	// set timezone
+	// if empty, change timezone to jakarta
+	var timeZoneApp string
+	if helpers.IsEmptyStruct(configuration.ReadApplicationConfiguration().TimeZone) {
+		timeZoneApp = "Asia/Jakarta"
+	} else {
+		timeZoneApp = configuration.ReadApplicationConfiguration().TimeZone
+	}
+	location, err := time.LoadLocation(timeZoneApp)
+	if err != nil {
+		log.Fatalf("Failed to load time zone : %v", err)
+	}
+	time.Local = location
 
-            return nil
-        } else if err != nil {
-            return c.Status(500).SendString("Redis error: " + err.Error())
-        }
+	// set logs path
+	logTimeLayout := toolbox.DateFormatToLayout(format.DateFormat)
+	currentDate := time.Now().Format(logTimeLayout)
+	logFile, _ := os.OpenFile(format.PublicLogPath+currentDate+format.LogExtension, os.O_RDWR|os.O_CREATE|os.O_APPEND, 0666)
+	log.SetOutput(logFile)
+	log.SetFlags(log.LstdFlags | log.Lshortfile)
 
-        // Cache hit: Return the cached response
-        return c.SendString(cached)
-    })
+	// set redis helper
+	redisHelperMain := database2.RedisHelper{
+		RedisMaster:  redisMasterClient,
+		RedisReplica: redisReplicaClient,
+		Ctx:          ctx,
+	}
 
-    // Example route
-    app.Get("/books", func(c *fiber.Ctx) error {
-        // Assume this is a costly operation that we want to cache
-        books := "List of books"
-        return c.SendString(books)
-    })
+	// set main router
+	mainRouter := route.HTTPHandler{
+		F:           app,
+		Ctx:         ctx,
+		Configs:     configuration,
+		RedisHelper: redisHelperMain,
+		Database:    gormDatabaseDB,
+	}
 
-    log.Fatal(app.Listen(":8080"))
+	// Register middleware and routes
+	mainRouter.RegisterAPIMiddleware()
+	mainRouter.RegisterAPIHandler()
+
+	// Start the Fiber app
+	portApps := fmt.Sprintf(":%d", configuration.ReadApplicationConfiguration().Port)
+	log.Fatal(app.Listen(portApps))
 }

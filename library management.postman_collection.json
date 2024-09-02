@@ -1,0 +1,1719 @@
+{
+	"info": {
+		"_postman_id": "469f9f42-ecda-4b3e-8f07-1e12f9d26ecf",
+		"name": "library management",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "8101305",
+		"_collection_link": "https://cloudy-robot-809617.postman.co/workspace/ayo-baca~507b0999-ab61-4632-ac41-0d19b5fb1b21/collection/8101305-469f9f42-ecda-4b3e-8f07-1e12f9d26ecf?action=share&source=collection_link&creator=8101305"
+	},
+	"item": [
+		{
+			"name": "user service",
+			"item": [
+				{
+					"name": "register user",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"username\": \"john_doe1234\",\n  \"email\": \"john.doe1234@example.com\",\n  \"password\": \"securePassword123\",\n  \"first_name\": \"John\",\n  \"last_name\": \"Doe\",\n  \"role\": \"admin\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3003/api/user/register",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3003",
+							"path": [
+								"api",
+								"user",
+								"register"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "New Request",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"username\": \"john_doe123\",\n  \"email\": \"john.doe123@example.com\",\n  \"password\": \"securePassword123\",\n  \"first_name\": \"John\",\n  \"last_name\": \"Doe\",\n  \"role\": \"admin\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3003/api/user/register",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3003",
+									"path": [
+										"api",
+										"user",
+										"register"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Sun, 01 Sep 2024 16:01:58 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "276"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Registration successful\",\n    \"status\": 1,\n    \"user\": {\n        \"id\": 3,\n        \"username\": \"john_doe123\",\n        \"email\": \"john.doe123@example.com\",\n        \"firstName\": \"John\",\n        \"lastName\": \"Doe\",\n        \"role\": \"admin\",\n        \"createdAt\": \"2024-09-01T16:01:59.107345Z\",\n        \"updated_at\": \"2024-09-01T16:01:59.107345Z\",\n        \"deletedAt\": null\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "login user",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"username\": \"john_doe123\",\n  \"password\": \"securePassword123\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3003/api/user/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3003",
+							"path": [
+								"api",
+								"user",
+								"login"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "register user Copy",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"username\": \"john_doe123\",\n  \"password\": \"securePassword123\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3003/api/user/login",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3003",
+									"path": [
+										"api",
+										"user",
+										"login"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Sun, 01 Sep 2024 16:02:22 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "478"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"success\",\n    \"status\": 1,\n    \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjozLCJ1c2VybmFtZSI6ImpvaG5fZG9lMTIzIiwicm9sZSI6ImFkbWluIiwiZXhwIjoxNzI1MjEwMTQzLCJpYXQiOjE3MjUyMDY1NDN9.rjUkz16F7ZHYimVmvRxJZjDCYqUwasyTtZtFO_WXHWY\",\n    \"user\": {\n        \"id\": 3,\n        \"username\": \"john_doe123\",\n        \"email\": \"john.doe123@example.com\",\n        \"firstName\": \"John\",\n        \"lastName\": \"Doe\",\n        \"role\": \"admin\",\n        \"createdAt\": \"2024-09-01T23:01:59.107345+07:00\",\n        \"updated_at\": \"2024-09-01T23:01:59.107345+07:00\",\n        \"deletedAt\": null\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "validate token",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"jwt_token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjozLCJ1c2VybmFtZSI6ImpvaG5fZG9lMTIzIiwicm9sZSI6ImFkbWluIiwiZXhwIjoxNzI1MjEyODA2LCJpYXQiOjE3MjUyMDkyMDZ9.pEBXFL7oZrxJwsIbshdfJZn07ciC9QgIuFSZhVpoiLs\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3003/api/user/validate-token",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3003",
+							"path": [
+								"api",
+								"user",
+								"validate-token"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "login user Copy",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"jwt_token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjozLCJ1c2VybmFtZSI6ImpvaG5fZG9lMTIzIiwicm9sZSI6ImFkbWluIiwiZXhwIjoxNzI1MjEwMTQzLCJpYXQiOjE3MjUyMDY1NDN9.rjUkz16F7ZHYimVmvRxJZjDCYqUwasyTtZtFO_WXHWY\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3003/api/user/validate-token",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3003",
+									"path": [
+										"api",
+										"user",
+										"validate-token"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Sun, 01 Sep 2024 16:02:34 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "109"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"claims\": {\n        \"user_id\": 3,\n        \"username\": \"john_doe123\",\n        \"role\": \"admin\",\n        \"exp\": 1725210143,\n        \"iat\": 1725206543\n    },\n    \"status\": 1\n}"
+						}
+					]
+				},
+				{
+					"name": "get",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjozLCJ1c2VybmFtZSI6ImpvaG5fZG9lMTIzIiwicm9sZSI6ImFkbWluIiwiZXhwIjoxNzI1MjEyODA2LCJpYXQiOjE3MjUyMDkyMDZ9.pEBXFL7oZrxJwsIbshdfJZn07ciC9QgIuFSZhVpoiLs",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"jwt_token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoxLCJ1c2VybmFtZSI6ImpvaG5fZG9lIiwicm9sZSI6ImFkbWluIiwiZXhwIjoxNzI1MTg5ODYxLCJpYXQiOjE3MjUxODYyNjF9.IK2la3Zsf21YZNrpIQulGtRUpiAT7sfXQsMOExuYGrw\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3003/api/user/get",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3003",
+							"path": [
+								"api",
+								"user",
+								"get"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "get",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"jwt_token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoxLCJ1c2VybmFtZSI6ImpvaG5fZG9lIiwicm9sZSI6ImFkbWluIiwiZXhwIjoxNzI1MTg5ODYxLCJpYXQiOjE3MjUxODYyNjF9.IK2la3Zsf21YZNrpIQulGtRUpiAT7sfXQsMOExuYGrw\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3003/api/user/get",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3003",
+									"path": [
+										"api",
+										"user",
+										"get"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Sun, 01 Sep 2024 16:02:42 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "250"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": 1,\n    \"user\": {\n        \"id\": 3,\n        \"username\": \"john_doe123\",\n        \"email\": \"john.doe123@example.com\",\n        \"firstName\": \"John\",\n        \"lastName\": \"Doe\",\n        \"role\": \"admin\",\n        \"createdAt\": \"2024-09-01T23:01:59.107345+07:00\",\n        \"updated_at\": \"2024-09-01T23:01:59.107345+07:00\",\n        \"deletedAt\": null\n    }\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "author service",
+			"item": [
+				{
+					"name": "create author",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjozLCJ1c2VybmFtZSI6ImpvaG5fZG9lMTIzIiwicm9sZSI6ImFkbWluIiwiZXhwIjoxNzI1MjEyODA2LCJpYXQiOjE3MjUyMDkyMDZ9.pEBXFL7oZrxJwsIbshdfJZn07ciC9QgIuFSZhVpoiLs",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"abjad\",\n    \"email\": \"abjad3@gmail.com\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3002/api/author/create",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3002",
+							"path": [
+								"api",
+								"author",
+								"create"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "create author",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"abjad\",\n    \"email\": \"abjad@gmail.com\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:3002/api/author/create",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "3002",
+									"path": [
+										"api",
+										"author",
+										"create"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Sun, 01 Sep 2024 16:01:12 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "198"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"author\": {\n        \"id\": 20,\n        \"name\": \"abjad\",\n        \"email\": \"abjad@gmail.com\",\n        \"created_at\": \"2024-09-01T16:01:13.025794Z\",\n        \"updated_at\": \"2024-09-01T16:01:13.025794Z\"\n    },\n    \"message\": \"Author created successfully\",\n    \"status\": 1\n}"
+						}
+					]
+				},
+				{
+					"name": "get author",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjozLCJ1c2VybmFtZSI6ImpvaG5fZG9lMTIzIiwicm9sZSI6ImFkbWluIiwiZXhwIjoxNzI1MjEyODA2LCJpYXQiOjE3MjUyMDkyMDZ9.pEBXFL7oZrxJwsIbshdfJZn07ciC9QgIuFSZhVpoiLs",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3002/api/author/detail/26",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3002",
+							"path": [
+								"api",
+								"author",
+								"detail",
+								"26"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "get author",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:3002/api/author/detail/1",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "3002",
+									"path": [
+										"api",
+										"author",
+										"detail",
+										"1"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Sun, 01 Sep 2024 16:00:49 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "165"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"author\": {\n        \"id\": 1,\n        \"name\": \"\",\n        \"email\": \"\",\n        \"created_at\": \"2024-09-01T15:32:57.77735+07:00\",\n        \"updated_at\": \"2024-09-01T15:32:57.77735+07:00\"\n    },\n    \"message\": \"success\",\n    \"status\": 1\n}"
+						}
+					]
+				},
+				{
+					"name": "update author",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjozLCJ1c2VybmFtZSI6ImpvaG5fZG9lMTIzIiwicm9sZSI6ImFkbWluIiwiZXhwIjoxNzI1MjEyODA2LCJpYXQiOjE3MjUyMDkyMDZ9.pEBXFL7oZrxJwsIbshdfJZn07ciC9QgIuFSZhVpoiLs",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"abjad\",\n    \"email\": \"abjad123578@gmail.com\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3002/api/author/update/26",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3002",
+							"path": [
+								"api",
+								"author",
+								"update",
+								"26"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "update author",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"abjad\",\n    \"email\": \"abjad123@gmail.com\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:3002/api/author/update/20",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "3002",
+									"path": [
+										"api",
+										"author",
+										"update",
+										"20"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Sun, 01 Sep 2024 16:01:33 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "211"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"author\": {\n        \"id\": 20,\n        \"name\": \"abjad\",\n        \"email\": \"abjad123@gmail.com\",\n        \"created_at\": \"2024-09-01T23:01:13.025794+07:00\",\n        \"updated_at\": \"2024-09-01T23:01:13.025794+07:00\"\n    },\n    \"message\": \"Author updated successfully\",\n    \"status\": 1\n}"
+						}
+					]
+				},
+				{
+					"name": "delete author",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjozLCJ1c2VybmFtZSI6ImpvaG5fZG9lMTIzIiwicm9sZSI6ImFkbWluIiwiZXhwIjoxNzI1MjEyODA2LCJpYXQiOjE3MjUyMDkyMDZ9.pEBXFL7oZrxJwsIbshdfJZn07ciC9QgIuFSZhVpoiLs",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3002/api/author/remove/26",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3002",
+							"path": [
+								"api",
+								"author",
+								"remove",
+								"26"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "update author Copy",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:3002/api/author/remove/20",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "3002",
+									"path": [
+										"api",
+										"author",
+										"remove",
+										"20"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Sun, 01 Sep 2024 16:01:40 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "52"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Author deleted successfully\",\n    \"status\": 1\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "category service",
+			"item": [
+				{
+					"name": "create category",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjozLCJ1c2VybmFtZSI6ImpvaG5fZG9lMTIzIiwicm9sZSI6ImFkbWluIiwiZXhwIjoxNzI1MjEyODA2LCJpYXQiOjE3MjUyMDkyMDZ9.pEBXFL7oZrxJwsIbshdfJZn07ciC9QgIuFSZhVpoiLs",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"category buku 3\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3005/api/category/create",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3005",
+							"path": [
+								"api",
+								"category",
+								"create"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "create category",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"category buku 1\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:3005/api/category/create",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "3005",
+									"path": [
+										"api",
+										"category",
+										"create"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Sun, 01 Sep 2024 16:46:56 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "181"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"book\": {\n        \"id\": 2,\n        \"name\": \"category buku 1\",\n        \"created_at\": \"2024-09-01T16:46:56.698474Z\",\n        \"updated_at\": \"2024-09-01T16:46:56.698474Z\"\n    },\n    \"message\": \"Category created successfully\",\n    \"status\": 1\n}"
+						}
+					]
+				},
+				{
+					"name": "get category",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjozLCJ1c2VybmFtZSI6ImpvaG5fZG9lMTIzIiwicm9sZSI6ImFkbWluIiwiZXhwIjoxNzI1MjEyODA2LCJpYXQiOjE3MjUyMDkyMDZ9.pEBXFL7oZrxJwsIbshdfJZn07ciC9QgIuFSZhVpoiLs",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3005/api/category/detail/2",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3005",
+							"path": [
+								"api",
+								"category",
+								"detail",
+								"2"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "get category",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:3005/api/category/detail/2",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "3005",
+									"path": [
+										"api",
+										"category",
+										"detail",
+										"2"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Sun, 01 Sep 2024 16:47:23 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "173"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"category\": {\n        \"id\": 2,\n        \"name\": \"category buku 1\",\n        \"created_at\": \"2024-09-01T23:46:56.698474+07:00\",\n        \"updated_at\": \"2024-09-01T23:46:56.698474+07:00\"\n    },\n    \"message\": \"success\",\n    \"status\": 1\n}"
+						}
+					]
+				},
+				{
+					"name": "update category",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjozLCJ1c2VybmFtZSI6ImpvaG5fZG9lMTIzIiwicm9sZSI6ImFkbWluIiwiZXhwIjoxNzI1MjEyODA2LCJpYXQiOjE3MjUyMDkyMDZ9.pEBXFL7oZrxJwsIbshdfJZn07ciC9QgIuFSZhVpoiLs",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"category buku 2\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3005/api/category/update/2",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3005",
+							"path": [
+								"api",
+								"category",
+								"update",
+								"2"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "update category",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"category buku 2\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:3005/api/category/update/2",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "3005",
+									"path": [
+										"api",
+										"category",
+										"update",
+										"2"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Sun, 01 Sep 2024 16:49:07 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "193"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"author\": {\n        \"id\": 2,\n        \"name\": \"category buku 2\",\n        \"created_at\": \"2024-09-01T23:46:56.698474+07:00\",\n        \"updated_at\": \"2024-09-01T23:46:56.698474+07:00\"\n    },\n    \"message\": \"Category updated successfully\",\n    \"status\": 1\n}"
+						}
+					]
+				},
+				{
+					"name": "delete category",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjozLCJ1c2VybmFtZSI6ImpvaG5fZG9lMTIzIiwicm9sZSI6ImFkbWluIiwiZXhwIjoxNzI1MjEyODA2LCJpYXQiOjE3MjUyMDkyMDZ9.pEBXFL7oZrxJwsIbshdfJZn07ciC9QgIuFSZhVpoiLs",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3005/api/category/remove/3",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3005",
+							"path": [
+								"api",
+								"category",
+								"remove",
+								"3"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "delete category",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:3005/api/category/remove/3",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "3005",
+									"path": [
+										"api",
+										"category",
+										"remove",
+										"3"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Sun, 01 Sep 2024 16:49:50 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "54"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Category deleted successfully\",\n    \"status\": 1\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "book service",
+			"item": [
+				{
+					"name": "create book",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjozLCJ1c2VybmFtZSI6ImpvaG5fZG9lMTIzIiwicm9sZSI6ImFkbWluIiwiZXhwIjoxNzI1MjEyODA2LCJpYXQiOjE3MjUyMDkyMDZ9.pEBXFL7oZrxJwsIbshdfJZn07ciC9QgIuFSZhVpoiLs",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"Sample Book Title 6\",\n    \"isbn\": \"12345678932\",\n    \"author_id\": 26,\n    \"category_id\": 2,\n    \"published_date\": \"2024-09-01T00:00:00Z\",\n    \"price\": 19.99,\n    \"stock_quantity\": 10\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3004/api/book/create",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3004",
+							"path": [
+								"api",
+								"book",
+								"create"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "create book",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"title\": \"Sample Book Title 4\",\n    \"isbn\": \"1234567893\",\n    \"author_id\": 26,\n    \"category_id\": 2,\n    \"published_date\": \"2024-09-01T00:00:00Z\",\n    \"price\": 19.99,\n    \"stock_quantity\": 10\n}\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:3004/api/book/create",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "3004",
+									"path": [
+										"api",
+										"book",
+										"create"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Sun, 01 Sep 2024 16:55:11 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "625"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"book\": {\n        \"id\": 9,\n        \"title\": \"Sample Book Title 4\",\n        \"isbn\": \"1234567893\",\n        \"author_id\": 26,\n        \"category_id\": 2,\n        \"published_date\": \"2024-09-01T07:00:00+07:00\",\n        \"price\": 19.99,\n        \"stock_quantity\": 10,\n        \"created_at\": \"2024-09-01T23:55:12.433121+07:00\",\n        \"updated_at\": \"2024-09-01T23:55:12.433121+07:00\",\n        \"author\": {\n            \"id\": 26,\n            \"name\": \"abjad\",\n            \"email\": \"abjad123578@gmail.com\",\n            \"created_at\": \"2024-09-01T23:30:17.936076+07:00\",\n            \"updated_at\": \"2024-09-01T23:30:17.936076+07:00\"\n        },\n        \"category\": {\n            \"id\": 2,\n            \"name\": \"category buku 2\",\n            \"created_at\": \"2024-09-01T23:46:56.698474+07:00\",\n            \"updated_at\": \"2024-09-01T23:46:56.698474+07:00\"\n        }\n    },\n    \"message\": \"Book created successfully\",\n    \"status\": 1\n}"
+						}
+					]
+				},
+				{
+					"name": "borrowing book",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjozLCJ1c2VybmFtZSI6ImpvaG5fZG9lMTIzIiwicm9sZSI6ImFkbWluIiwiZXhwIjoxNzI1MjEyODA2LCJpYXQiOjE3MjUyMDkyMDZ9.pEBXFL7oZrxJwsIbshdfJZn07ciC9QgIuFSZhVpoiLs",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"book_id\": 11,\n    \"user_id\": 1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3004/api/borrowing/borrow",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3004",
+							"path": [
+								"api",
+								"borrowing",
+								"borrow"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "borrowing book",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"book_id\": 11,\n    \"user_id\": 1\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:3004/api/borrowing/borrow",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "3004",
+									"path": [
+										"api",
+										"borrowing",
+										"borrow"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Sun, 01 Sep 2024 17:16:24 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "1052"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"borrowing\": {\n        \"id\": 4,\n        \"book_id\": 11,\n        \"user_id\": 1,\n        \"borrowed_at\": \"2024-09-02T00:16:24.791582+07:00\",\n        \"created_at\": \"2024-09-02T00:16:24.792663+07:00\",\n        \"updated_at\": \"2024-09-02T00:16:24.792663+07:00\",\n        \"book\": {\n            \"id\": 11,\n            \"title\": \"Sample Book Title 6\",\n            \"isbn\": \"12345678932\",\n            \"author_id\": 26,\n            \"category_id\": 2,\n            \"published_date\": \"2024-09-01T07:00:00+07:00\",\n            \"price\": 19.99,\n            \"stock_quantity\": 9,\n            \"created_at\": \"2024-09-02T00:16:16.89103+07:00\",\n            \"updated_at\": \"2024-09-02T00:16:16.89103+07:00\",\n            \"author\": {\n                \"id\": 26,\n                \"name\": \"abjad\",\n                \"email\": \"abjad123578@gmail.com\",\n                \"created_at\": \"2024-09-01T23:30:17.936076+07:00\",\n                \"updated_at\": \"2024-09-01T23:30:17.936076+07:00\"\n            },\n            \"category\": {\n                \"id\": 2,\n                \"name\": \"category buku 2\",\n                \"created_at\": \"2024-09-01T23:46:56.698474+07:00\",\n                \"updated_at\": \"2024-09-02T00:15:54.626905+07:00\"\n            }\n        }\n    },\n    \"message\": \"Book borrowed successfully\",\n    \"status\": 1,\n    \"user\": {\n        \"id\": 1,\n        \"username\": \"john_doe\",\n        \"email\": \"john.doe@example.com\",\n        \"firstName\": \"John\",\n        \"lastName\": \"Doe\",\n        \"role\": \"admin\",\n        \"createdAt\": \"2024-09-01T17:10:40+07:00\",\n        \"updated_at\": \"2024-09-01T17:10:40+07:00\",\n        \"deletedAt\": \"0001-01-01T00:00:00Z\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "return book",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjozLCJ1c2VybmFtZSI6ImpvaG5fZG9lMTIzIiwicm9sZSI6ImFkbWluIiwiZXhwIjoxNzI1MjEyODA2LCJpYXQiOjE3MjUyMDkyMDZ9.pEBXFL7oZrxJwsIbshdfJZn07ciC9QgIuFSZhVpoiLs",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3004/api/borrowing/return/4",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3004",
+							"path": [
+								"api",
+								"borrowing",
+								"return",
+								"4"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "return book",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:3004/api/borrowing/return/4",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "3004",
+									"path": [
+										"api",
+										"borrowing",
+										"return",
+										"4"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Sun, 01 Sep 2024 17:16:55 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "1103"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"borrowing\": {\n        \"id\": 4,\n        \"book_id\": 11,\n        \"user_id\": 1,\n        \"borrowed_at\": \"2024-09-02T00:16:24.791582+07:00\",\n        \"returned_at\": \"2024-09-02T00:16:56.715084+07:00\",\n        \"created_at\": \"2024-09-02T00:16:24.792663+07:00\",\n        \"updated_at\": \"2024-09-02T00:16:56.716517+07:00\",\n        \"book\": {\n            \"id\": 11,\n            \"title\": \"Sample Book Title 6\",\n            \"isbn\": \"12345678932\",\n            \"author_id\": 26,\n            \"category_id\": 2,\n            \"published_date\": \"2024-09-01T07:00:00+07:00\",\n            \"price\": 19.99,\n            \"stock_quantity\": 10,\n            \"created_at\": \"2024-09-02T00:16:16.89103+07:00\",\n            \"updated_at\": \"2024-09-02T00:16:56.716137+07:00\",\n            \"author\": {\n                \"id\": 26,\n                \"name\": \"abjad\",\n                \"email\": \"abjad123578@gmail.com\",\n                \"created_at\": \"2024-09-01T23:30:17.936076+07:00\",\n                \"updated_at\": \"2024-09-02T00:16:56.715333+07:00\"\n            },\n            \"category\": {\n                \"id\": 2,\n                \"name\": \"category buku 2\",\n                \"created_at\": \"2024-09-01T23:46:56.698474+07:00\",\n                \"updated_at\": \"2024-09-02T00:16:56.715792+07:00\"\n            }\n        }\n    },\n    \"message\": \"Book returned successfully\",\n    \"status\": 1,\n    \"user\": {\n        \"id\": 1,\n        \"username\": \"john_doe\",\n        \"email\": \"john.doe@example.com\",\n        \"firstName\": \"John\",\n        \"lastName\": \"Doe\",\n        \"role\": \"admin\",\n        \"createdAt\": \"2024-09-01T17:10:40+07:00\",\n        \"updated_at\": \"2024-09-01T17:10:40+07:00\",\n        \"deletedAt\": \"0001-01-01T00:00:00Z\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "get book",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjozLCJ1c2VybmFtZSI6ImpvaG5fZG9lMTIzIiwicm9sZSI6ImFkbWluIiwiZXhwIjoxNzI1MjEyODA2LCJpYXQiOjE3MjUyMDkyMDZ9.pEBXFL7oZrxJwsIbshdfJZn07ciC9QgIuFSZhVpoiLs",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3004/api/book/detail/9",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3004",
+							"path": [
+								"api",
+								"book",
+								"detail",
+								"9"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "get book",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:3004/api/book/detail/9",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "3004",
+									"path": [
+										"api",
+										"book",
+										"detail",
+										"9"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Sun, 01 Sep 2024 16:55:32 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "609"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"author\": {\n        \"id\": 9,\n        \"title\": \"Sample Book Title 4\",\n        \"isbn\": \"1234567893\",\n        \"author_id\": 26,\n        \"category_id\": 2,\n        \"published_date\": \"2024-09-01T07:00:00+07:00\",\n        \"price\": 19.99,\n        \"stock_quantity\": 10,\n        \"created_at\": \"2024-09-01T23:55:12.433121+07:00\",\n        \"updated_at\": \"2024-09-01T23:55:12.433121+07:00\",\n        \"author\": {\n            \"id\": 26,\n            \"name\": \"abjad\",\n            \"email\": \"abjad123578@gmail.com\",\n            \"created_at\": \"2024-09-01T23:30:17.936076+07:00\",\n            \"updated_at\": \"2024-09-01T23:30:17.936076+07:00\"\n        },\n        \"category\": {\n            \"id\": 2,\n            \"name\": \"category buku 2\",\n            \"created_at\": \"2024-09-01T23:46:56.698474+07:00\",\n            \"updated_at\": \"2024-09-01T23:46:56.698474+07:00\"\n        }\n    },\n    \"message\": \"success\",\n    \"status\": 1\n}"
+						}
+					]
+				},
+				{
+					"name": "update book",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjozLCJ1c2VybmFtZSI6ImpvaG5fZG9lMTIzIiwicm9sZSI6ImFkbWluIiwiZXhwIjoxNzI1MjEyODA2LCJpYXQiOjE3MjUyMDkyMDZ9.pEBXFL7oZrxJwsIbshdfJZn07ciC9QgIuFSZhVpoiLs",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"Sample Book Title 9\",\n    \"isbn\": \"1234567893\",\n    \"author_id\": 26,\n    \"category_id\": 2,\n    \"published_date\": \"2024-09-01T00:00:00Z\",\n    \"price\": 19.99,\n    \"stock_quantity\": 10\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3004/api/book/update/9",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3004",
+							"path": [
+								"api",
+								"book",
+								"update",
+								"9"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "update book",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"title\": \"Sample Book Title 9\",\n    \"isbn\": \"1234567893\",\n    \"author_id\": 26,\n    \"category_id\": 2,\n    \"published_date\": \"2024-09-01T00:00:00Z\",\n    \"price\": 19.99,\n    \"stock_quantity\": 10\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:3004/api/book/update/9",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "3004",
+									"path": [
+										"api",
+										"book",
+										"update",
+										"9"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Sun, 01 Sep 2024 16:56:25 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "627"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"author\": {\n        \"id\": 9,\n        \"title\": \"Sample Book Title 9\",\n        \"isbn\": \"1234567893\",\n        \"author_id\": 26,\n        \"category_id\": 2,\n        \"published_date\": \"2024-09-01T07:00:00+07:00\",\n        \"price\": 19.99,\n        \"stock_quantity\": 10,\n        \"created_at\": \"2024-09-01T23:55:12.433121+07:00\",\n        \"updated_at\": \"2024-09-01T23:55:12.433121+07:00\",\n        \"author\": {\n            \"id\": 26,\n            \"name\": \"abjad\",\n            \"email\": \"abjad123578@gmail.com\",\n            \"created_at\": \"2024-09-01T23:30:17.936076+07:00\",\n            \"updated_at\": \"2024-09-01T23:30:17.936076+07:00\"\n        },\n        \"category\": {\n            \"id\": 2,\n            \"name\": \"category buku 2\",\n            \"created_at\": \"2024-09-01T23:46:56.698474+07:00\",\n            \"updated_at\": \"2024-09-01T23:46:56.698474+07:00\"\n        }\n    },\n    \"message\": \"Book updated successfully\",\n    \"status\": 1\n}"
+						}
+					]
+				},
+				{
+					"name": "delete book",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjozLCJ1c2VybmFtZSI6ImpvaG5fZG9lMTIzIiwicm9sZSI6ImFkbWluIiwiZXhwIjoxNzI1MjEyODA2LCJpYXQiOjE3MjUyMDkyMDZ9.pEBXFL7oZrxJwsIbshdfJZn07ciC9QgIuFSZhVpoiLs",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3004/api/book/remove/9",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3004",
+							"path": [
+								"api",
+								"book",
+								"remove",
+								"9"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "delete book",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:3004/api/book/remove/9",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "3004",
+									"path": [
+										"api",
+										"book",
+										"remove",
+										"9"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Sun, 01 Sep 2024 16:56:50 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "50"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Book deleted successfully\",\n    \"status\": 1\n}"
+						}
+					]
+				}
+			]
+		}
+	]
+}
